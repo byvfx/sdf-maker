@@ -28,16 +28,20 @@ glob = "0.3"
 toml = "0.8"
 serde_json = "1.0"
 
-# GUI Framework - using egui
-egui = "0.24"
-eframe = "0.24"
+# GUI Framework - using egui (updated versions for better Windows support)
+egui = "0.28"
+eframe = { version = "0.28", default-features = true }
+
+# Windows dependencies (for eframe on Windows)
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winuser", "windef", "wingdi", "libloaderapi"] }
 
 # Math and image processing
 nalgebra = "0.32"
 imageproc = "0.23"
 
-# Async runtime for batch processing
-tokio = { version = "1.0", features = ["full"] }
+# Async runtime for batch processing (currently unused but available)
+tokio = { version = "1.0", features = ["rt", "rt-multi-thread", "macros"] }
 
 # Time and date
 chrono = "0.4"
