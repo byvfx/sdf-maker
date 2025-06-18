@@ -1,5 +1,16 @@
 use image::{GrayImage, Luma};
-use nalgebra::Point2;
+
+#[derive(Debug, Clone)]
+pub struct Point2 {
+    pub x: f32,
+    pub y: f32,
+}
+
+impl Point2 {
+    pub fn new(x: f32, y: f32) -> Self {
+        Self { x, y }
+    }
+}
 
 #[derive(Debug, Clone)]
 pub struct SDFData {
@@ -150,7 +161,7 @@ impl SDFData {
 
 #[derive(Debug, Clone)]
 pub struct Region {
-    pub center: Point2<f32>,
+    pub center: Point2,
     pub pixel_count: u32,
     pub bounds: (u32, u32, u32, u32), // min_x, min_y, max_x, max_y
 }

@@ -89,8 +89,7 @@ enum Commands {
     },
 }
 
-#[tokio::main]
-async fn main() -> Result<()> {
+fn main() -> Result<()> {
     env_logger::init();
     
     let cli = Cli::parse();
@@ -118,7 +117,7 @@ async fn main() -> Result<()> {
                 &method,
                 threshold,
                 max_distance
-            ).await?;
+            )?;
         }
         Some(Commands::Batch { 
             directory, 
@@ -136,7 +135,7 @@ async fn main() -> Result<()> {
                 config,
                 jobs,
                 progress
-            ).await?;
+            )?;
         }
         None => {
             // Launch GUI

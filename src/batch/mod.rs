@@ -2,7 +2,7 @@ use anyhow::Result;
 use std::path::PathBuf;
 
 /// Batch processing functionality
-pub async fn process_batch(
+pub fn process_batch(
     directory: PathBuf,
     output: PathBuf,
     recursive: bool,

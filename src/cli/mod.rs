@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 /// Process a single file with multi-channel support
-pub async fn process_single(
+pub fn process_single(
     input: PathBuf,
     output: Option<PathBuf>,
     alpha: Option<PathBuf>,
