@@ -1,0 +1,59 @@
+[package]
+name = "sdf-maker"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <brandon@byvfx.com>"]
+description = "A Rust program that converts grayscale images into 2D Signed Distance Fields (SDFs) for use in game engines"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/byvfx/sdf-maker"
+readme = "README.md"
+keywords = ["sdf", "signed-distance-field", "image-processing", "game-development"]
+categories = ["game-development", "graphics", "multimedia::images"]
+
+[dependencies]
+# Core functionality
+image = "0.24"
+rayon = "1.7"
+anyhow = "1.0"
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+
+# CLI Framework
+clap = { version = "4.0", features = ["derive", "cargo"] }
+indicatif = "0.17"
+env_logger = "0.10"
+glob = "0.3"
+
+# Configuration formats
+toml = "0.8"
+serde_json = "1.0"
+
+# GUI Framework - using egui
+egui = "0.24"
+eframe = "0.24"
+
+# Math and image processing
+nalgebra = "0.32"
+imageproc = "0.23"
+
+# Async runtime for batch processing
+tokio = { version = "1.0", features = ["full"] }
+
+# Time and date
+chrono = "0.4"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+tempfile = "3.0"
+
+[[bench]]
+name = "sdf_benchmarks"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[profile.bench]
+opt-level = 3
